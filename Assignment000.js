@@ -151,7 +151,10 @@ function defaultWeatherReport(){
     future.setDate(today.getDate() + 5);
 
     var date = future.toISOString().split("T");
-    var url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + place + "/" + now + "/" + date[0] + "?key=489MV6Y8JR2QGR9VALQKSRLSB";
+    const key="489MV6Y8JR2QGR9VALQKSRLSB";
+
+    const apiKey = process.env.key;
+    var url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + place + "/" + now + "/" + date[0] + "?key="+apiKey;
     xhr.open("GET", url);
 
 
