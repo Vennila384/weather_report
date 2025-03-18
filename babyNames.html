@@ -1,0 +1,154 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Baby Names</title>
+        <link rel="stylesheet" type="text/css" href="babyNames.css">
+        <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Exo:ital,wght@0,100..900;1,100..900&family=Henny+Penny&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    </head>
+    <body> -->
+        <!-- <center>
+            <h1>Baby Names</h1>
+            <div id="whole1">
+                <input id="box1" type="text" placeholder="Enter your baby gender..."/>
+                <input id="box2" type="button" value="Search" onclick="generateNames()"/>
+            </div>
+            <div id="whole2">
+                <p></p>
+            </div>
+        </center> -->
+        <!-- <p>Hello</p> -->
+        <!-- <button id="test">01  structure</button> -->
+
+        <!-- <div id="container">
+            <div id="container1">
+                <div id="whole1"></div>
+                <div id="whole2">
+                    <div id="whole3"></div>
+                    <div id="whole4"></div>
+                    <div id="whole5"></div>
+                    <div id="whole6" class="buttons"></div>
+                    <div id="whole7" class="buttons"></div>
+                    <div id="whole8" class="buttons"></div>
+                </div>
+            </div>
+            <div id="container2">
+                <div id="whole9" class="box"></div>
+                <div id="whole10" class="box"></div>
+                <div id="whole11" class="box"></div>
+                <div id="whole12" class="box"></div>
+            </div>
+        </div> -->
+        <!-- <script src="babyNames.js"></script>
+    </body>
+</html> -->
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Cube</title>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
+</head>
+<body>
+    <script>
+        // 1. Create a scene
+        const scene = new THREE.Scene();
+
+        // 2. Create a camera (PerspectiveCamera: field of view, aspect ratio, near, far)
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 5; // Move camera back to see the object
+
+        // 3. Create a renderer
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement); // Attach to HTML
+
+        // 4. Create a cube (geometry + material)
+        const geometry = new THREE.BoxGeometry();
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // Green color
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube); // Add cube to scene
+
+        // 5. Animation loop
+        function animate() {
+            requestAnimationFrame(animate); // Keep looping
+            
+            // Rotate the cube
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+
+            renderer.render(scene, camera); // Render the scene
+        }
+
+        animate(); // Start animation
+    </script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification with TensorFlow.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+</head>
+<body>
+    <h2>Image Classification with TensorFlow.js (MobileNet)</h2>
+    <p>Upload an image, and the model will predict what it is.</p>
+
+    <input type="file" accept="image/*" id="imageUpload" onchange="loadImage(event)" placeholder="upload">
+    <br><br>
+    <img id="preview" width="300" style="display:none;">
+    <p><strong>Prediction:</strong> <span id="predictionResult"></span></p>
+
+    <script>
+        let model;
+
+        // Load the MobileNet model
+        async function loadModel() {
+            model = await mobilenet.load();
+            console.log("Model Loaded!");
+        }
+
+        // Function to handle image upload
+        function loadImage(event) {
+            const preview = document.getElementById("preview");
+            const file = event.target.files[0];
+
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function () {
+                preview.src = reader.result;
+                preview.style.display = "block";
+                classifyImage(preview);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Function to classify image using the model
+        async function classifyImage(image) {
+            if (!model) {
+                document.getElementById("predictionResult").innerText = "Model not loaded yet.";
+                return;
+            }
+
+            const predictions = await model.classify(image);
+            document.getElementById("predictionResult").innerText = 
+                `${predictions[0].className} (${(predictions[0].probability * 100).toFixed(2)}%)`;
+        }
+
+        // Load the model when the page loads
+        loadModel();
+    </script>
+</body>
+</html>
