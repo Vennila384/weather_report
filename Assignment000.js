@@ -419,14 +419,14 @@ function weatherReport(){
 
 
 // var url = "https://api.aviationstack.com/v1/flights?access_key=47e13752bdf931c09a784d9eb497b840&flight_date=2024-12-01";
-var url = "https://api.aviationstack.com/v1/flights?access_key=abd5298567f3968818b78badeb905215"
+// var url = "https://api.aviationstack.com/v1/flights?access_key=abd5298567f3968818b78badeb905215"
 
-fetch(url,{
-    method:"GET",
-}).then((response)=>
-    response.json()
-).then((obj)=>console.log(obj))
-.catch(err=>console.log(err))
+// fetch(url,{
+//     method:"GET",
+// }).then((response)=>
+//     response.json()
+// ).then((obj)=>console.log(obj))
+// .catch(err=>console.log(err))
 
 
 // var chatgptApiKey = "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";
